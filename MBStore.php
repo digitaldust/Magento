@@ -12,7 +12,9 @@
         <p style="font-family: Verdana; font-weight: bold">MagentoGo Data Retrieval for MBSTORE</p>
         <?php
         echo("Retrieve soap client...");
-        $proxy = new SoapClient('http://manuelbozzi.gostorego.com/api/v2_soap/?wsdl');
+        $store = htmlspecialchars($_POST['store']);
+        $storelink = 'http://' . $store . '/api/v2_soap/?wsdl';
+        $proxy = new SoapClient($storelink);
         echo("Done<br />");
         // If somestuff requires api authentification,
         // then get a session token
